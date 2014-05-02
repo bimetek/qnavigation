@@ -28,15 +28,18 @@ PRECOMPILED_DIR = $$BUILD_DIR
 DEFINES += QNAVIGATION_LIBRARY
 
 SOURCES += \
-    slidingstackedwidget.cpp
+    slidingstackedwidget.cpp \
+    navigationwidget.cpp
 
 HEADERS += \
     qnavigation_global.h \
-    slidingstackedwidget.h
+    slidingstackedwidget.h \
+    navigationwidget.h
 
 PUBLIC_HEADERS = \
     qnavigation_global.h \
-    slidingstackedwidget.h
+    slidingstackedwidget.h \
+    navigationwidget.h
 
 #
 # Deploy

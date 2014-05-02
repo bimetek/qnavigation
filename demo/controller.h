@@ -5,24 +5,28 @@
 
 namespace QNavigation
 {
-class SlidingStackedWidget;
+class NavigationWidget;
 }
+
+class Scene;
 
 class Controller : public QObject
 {
     Q_OBJECT
 
 public:
-    explicit Controller(QNavigation::SlidingStackedWidget *w,
+    explicit Controller(QNavigation::NavigationWidget *w,
                         QObject *parent = 0);
 
 private slots:
     void navigateToNext();
     void navigateToPrev();
-    void navigationDidEnd();
 
 private:
-    QNavigation::SlidingStackedWidget *_mainWidget;
+    Scene *addScene();
+
+    QNavigation::NavigationWidget *_mainWidget;
+    int _counter;
 };
 
 #endif // CONTROLLER_H

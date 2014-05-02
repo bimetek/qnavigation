@@ -1,36 +1,31 @@
 #include <QDebug>
 #include "controller.h"
 #include "scene.h"
+#include "navigationwidget.h"
 #include "slidingstackedwidget.h"
 
-Controller::Controller(QNavigation::SlidingStackedWidget *w, QObject *parent) :
-    QObject(parent), _mainWidget(w)
+Controller::Controller(QNavigation::NavigationWidget *w, QObject *parent) :
+    QObject(parent), _mainWidget(w), _counter(0)
 {
-    for (int i = 0; i < 3; i++)
-    {
-        Scene *s = new Scene(QString("%1").arg(i));
-        _mainWidget->addWidget(s);
-        connect(s, SIGNAL(prevClicked()), this, SLOT(navigateToPrev()));
-        connect(s, SIGNAL(nextClicked()), this, SLOT(navigateToNext()));
-    }
-    connect(w, SIGNAL(animationEnded()), this, SLOT(navigationDidEnd()));
+    navigateToNext();
 }
 
 void Controller::navigateToNext()
 {
-    int i = (_mainWidget->currentIndex() + 1) % (_mainWidget->count());
-    _mainWidget->navigate(i);
+    Scene *scene = addScene();
+    _mainWidget->push(scene);
+    scene->setPrevButtonEnabled(_mainWidget->level() != 0);
 }
 
 void Controller::navigateToPrev()
 {
-    int i = _mainWidget->currentIndex() - 1;
-    if (i < 0)
-        i += _mainWidget->count();
-    _mainWidget->navigate(i);
+    _mainWidget->pop();
 }
 
-void Controller::navigationDidEnd()
+Scene *Controller::addScene()
 {
-    qDebug() << "Switched to" << _mainWidget->currentIndex();
+    Scene *s = new Scene(QString("%1").arg(_counter++));
+    connect(s, SIGNAL(prevClicked()), this, SLOT(navigateToPrev()));
+    connect(s, SIGNAL(nextClicked()), this, SLOT(navigateToNext()));
+    return s;
 }
