@@ -27,11 +27,11 @@ unix {
 
 SOURCES += main.cpp\
     scene.cpp \
-    controller.cpp
+    mainwindow.cpp
 
 HEADERS  += \
     scene.h \
-    controller.h
+    mainwindow.h
 
 FORMS += \
     scene.ui

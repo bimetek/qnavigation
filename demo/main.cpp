@@ -1,15 +1,11 @@
 #include <QApplication>
 #include "navigationwidget.h"
-#include "controller.h"
+#include "mainwindow.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QNavigation::NavigationWidget w;
-
-    Controller c(&w);
-    Q_UNUSED(c);
-
-    w.show();
+    MainWindow mw(new QNavigation::NavigationWidget());
+    mw.show();
     return a.exec();
 }

@@ -1,7 +1,8 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
-#include <QObject>
+#include <QMainWindow>
+class QToolBar;
 
 namespace QNavigation
 {
@@ -10,23 +11,24 @@ class NavigationWidget;
 
 class Scene;
 
-class Controller : public QObject
+class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit Controller(QNavigation::NavigationWidget *w,
-                        QObject *parent = 0);
+    explicit MainWindow(QNavigation::NavigationWidget *w);
 
 private slots:
     void navigateToNext();
     void navigateToPrev();
+    void toggleNavBar();
 
 private:
     Scene *addScene();
 
+    QToolBar *_toolBar;
     QNavigation::NavigationWidget *_mainWidget;
     int _counter;
 };
 
-#endif // CONTROLLER_H
+#endif // MAINWINDOW_H
