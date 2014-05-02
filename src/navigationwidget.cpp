@@ -131,6 +131,9 @@ void NavigationWidget::pop()
     if (d->popStack.isEmpty())
         return;
 
+    // Hide the back button as soon as possible to prevent over-clicking.
+    d->backButton->setVisible(popStack.size() > 1);
+
     d->cleaner->add(d->stackedWidget->currentWidget());
     d->stackedWidget->navigate(d->popStack.pop(),
                                SlidingStackedWidget::LeftToRight);
@@ -141,6 +144,9 @@ void NavigationWidget::popToTop()
     Q_D(NavigationWidget);
     if (d->popStack.isEmpty())
         return;
+
+    // Hide the back button as soon as possible to prevent over-clicking.
+    d->backButton->hide();
 
     int target = d->stackedWidget->currentIndex();
     do {
