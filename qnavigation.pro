@@ -1,8 +1,7 @@
 TEMPLATE = subdirs
-CONFIG += ordered
 
 SUBDIRS += \
     src \
     demo
 
-demo.depends += src
+demo.depends = src
