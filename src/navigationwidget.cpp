@@ -45,6 +45,7 @@ NavigationWidgetPrivate::~NavigationWidgetPrivate()
 void NavigationWidgetPrivate::cleanup()
 {
     cleaner->clear();
+    backButton->setVisible(!popStack.isEmpty());
 }
 
 
@@ -59,11 +60,10 @@ NavigationWidget::NavigationWidget(QWidget *parent) :
     d->titleLabel->setFixedHeight(NavigationBarHeight);
     d->titleLabel->setAlignment(Qt::AlignCenter);
 
-    d->backButton->setText(tr("Back"));
-    d->backButton->setStyleSheet(
-                "QPushButton { border: none; outline: none; width: 30px; "
-                "height: 30px; } QPushButton:hover { color: gray; }");
-    d->backButton->move(0, 5);
+    d->backButton->setText(tr("< Back"));
+    d->backButton->setFixedHeight(NavigationBarHeight);
+    d->backButton->setStyleSheet("QPushButton { border: none; outline: none; }"
+                                 "QPushButton:hover { color: gray; }");
     d->backButton->hide();
 
     connect(d->backButton, SIGNAL(clicked()), this, SLOT(pop()));
