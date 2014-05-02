@@ -1,5 +1,5 @@
-#ifndef NAVIGATIONWIDGET_H
-#define NAVIGATIONWIDGET_H
+#ifndef QNAVIGATION_NAVIGATIONWIDGET_H
+#define QNAVIGATION_NAVIGATIONWIDGET_H
 
 #include <QWidget>
 #include <QLabel>
@@ -42,4 +42,4 @@ public slots:
 
 }   // namespace QNavigation
 
-#endif // NAVIGATIONWIDGET_H
+#endif // QNAVIGATION_NAVIGATIONWIDGET_H
