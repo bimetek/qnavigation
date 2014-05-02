@@ -24,8 +24,12 @@ void Controller::navigateToPrev()
 
 Scene *Controller::addScene()
 {
-    Scene *s = new Scene(QString("%1").arg(_counter++));
+    Scene *s = new Scene(QString("%1").arg(_counter));
+    s->setWindowTitle(QString("Scene %1").arg(_counter));
+
     connect(s, SIGNAL(prevClicked()), this, SLOT(navigateToPrev()));
     connect(s, SIGNAL(nextClicked()), this, SLOT(navigateToNext()));
+
+    _counter++;
     return s;
 }

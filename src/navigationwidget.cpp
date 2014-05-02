@@ -46,6 +46,7 @@ void NavigationWidgetPrivate::cleanup()
 {
     cleaner->clear();
     backButton->setVisible(!popStack.isEmpty());
+    titleLabel->setText(stackedWidget->currentWidget()->windowTitle());
 }
 
 
@@ -119,6 +120,8 @@ void NavigationWidget::push(QWidget *item)
 
     int next = d->stackedWidget->addWidget(item);
     d->stackedWidget->navigate(next, SlidingStackedWidget::RightToLeft);
+
+    // Set title explicitly because initial push won't trigger cleanup().
     d->titleLabel->setText(item->windowTitle());
 }
 
