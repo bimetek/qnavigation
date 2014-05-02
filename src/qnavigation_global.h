@@ -1,5 +1,5 @@
-#ifndef SRC_GLOBAL_H
-#define SRC_GLOBAL_H
+#ifndef QNAVIGATION_GLOBAL_H
+#define QNAVIGATION_GLOBAL_H
 
 #include <QtCore/qglobal.h>
 
@@ -9,4 +9,4 @@
 #  define QNAVIGATION_SHARED_EXPORT Q_DECL_IMPORT
 #endif
 
-#endif // SRC_GLOBAL_H
+#endif // QNAVIGATION_GLOBAL_H
