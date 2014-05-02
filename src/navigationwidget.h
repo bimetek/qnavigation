@@ -32,9 +32,10 @@ public:
     SlidingStackedWidget *stackedWidget() const;
 
     bool navigationBarHidden() const;
-    void setNavigationBarHidden(bool hidden);
 
 public slots:
+    void setNavigationBarHidden(bool hidden);
+
     void push(QWidget *item);
     void pop();
     void popToTop();

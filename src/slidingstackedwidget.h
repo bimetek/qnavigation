@@ -31,13 +31,12 @@ public:
     virtual ~SlidingStackedWidget();
 
     int duration() const;
-    void setDuration(int duration);
-
     QEasingCurve::Type easingType() const;
-    void setEasingType(QEasingCurve::Type type);
-
 
 public slots:
+    void setDuration(int duration);
+    void setEasingType(QEasingCurve::Type type);
+
     void navigate(int to, Direction direction = Automatic, int duration = -1);
     void navigate(QWidget *to, Direction direction = Automatic,
                   int duration = -1);
