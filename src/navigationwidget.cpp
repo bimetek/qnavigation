@@ -9,7 +9,7 @@
 namespace QNavigation
 {
 
-const int NavigationBarHeight = 40;
+static const int NavigationBarHeight = 40;
 
 class NavigationWidgetPrivate
 {
