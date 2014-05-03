@@ -2,7 +2,6 @@
 #include <QFont>
 #include <QObjectCleanupHandler>
 #include <QStack>
-#include <QApplication>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include "slidingstackedwidget.h"
@@ -61,7 +60,9 @@ NavigationWidget::NavigationWidget(QWidget *parent) :
     d->titleLabel->setFixedHeight(NavigationBarHeight);
     d->titleLabel->setAlignment(Qt::AlignCenter);
 
-    d->backButton->setText(tr("< Back"));
+    d->backButton->setText(
+                QString("%1 %2").arg(QString::fromUtf8("\xe3\x80\x88", 3),
+                                     tr("Back")));
     d->backButton->setFixedHeight(NavigationBarHeight);
     d->backButton->setStyleSheet("QPushButton { border: none; outline: none; }"
                                  "QPushButton:hover { color: gray; }");
