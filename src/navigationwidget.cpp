@@ -132,7 +132,7 @@ void NavigationWidget::pop()
         return;
 
     // Hide the back button as soon as possible to prevent over-clicking.
-    d->backButton->setVisible(popStack.size() > 1);
+    d->backButton->setVisible(d->popStack.size() > 1);
 
     d->cleaner->add(d->stackedWidget->currentWidget());
     d->stackedWidget->navigate(d->popStack.pop(),
