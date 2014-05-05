@@ -36,9 +36,9 @@ public:
 public slots:
     void setNavigationBarHidden(bool hidden);
 
-    void push(QWidget *item);
-    void pop();
-    void popToTop();
+    virtual void push(QWidget *item);
+    virtual void pop();
+    virtual void popToTop();
 };
 
 }   // namespace QNavigation
