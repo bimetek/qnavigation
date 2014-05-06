@@ -93,8 +93,7 @@ void SlidingStackedWidget::navigate(
 {
     Q_D(SlidingStackedWidget);
 
-    int c = count();
-    Q_ASSERT(to >= 0 && to < c);
+    Q_ASSERT(to >= 0 && to < count());
 
     if (d->active)
         return;
