@@ -1,7 +1,8 @@
 TEMPLATE = subdirs
 
-SUBDIRS += \
-    src \
-    demo
+SUBDIRS += src
 
-demo.depends = src
+CONFIG(demo) {
+    SUBDIRS += demo
+    demo.depends = src
+}
