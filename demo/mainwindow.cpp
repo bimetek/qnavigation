@@ -1,4 +1,3 @@
-#include <QDebug>
 #include <QSpinBox>
 #include <QToolBar>
 #include "mainwindow.h"

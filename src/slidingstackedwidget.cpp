@@ -1,7 +1,6 @@
 #include "slidingstackedwidget.h"
 #include <QParallelAnimationGroup>
 #include <QPropertyAnimation>
-#include <QDebug>
 
 namespace QNavigation
 {
